@@ -21,7 +21,12 @@ public class BuscapeWeb extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
-		resp.getWriter().print("<html><head><title>Preços</title></head><body>");
+		resp.setContentType("text/html; charset=utf-8");
+		resp.setCharacterEncoding("UTF-8");
+		
+		resp.getWriter().print("<html><head><title>Preços</title>");
+		resp.getWriter().print("<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\">");
+		resp.getWriter().print("</head><body>");
 		
 		BuscapeCliente cliente = new BuscapeCliente();
 		
@@ -57,7 +62,14 @@ public class BuscapeWeb extends HttpServlet {
 	}
 	
 	public static void main(String[] args) throws Exception {
-		Server server = new Server(Integer.valueOf(System.getenv("PORT")));
+		int port = 5000;
+		
+		if (System.getenv("PORT") != null) {
+			port = Integer.valueOf(System.getenv("PORT"));
+			
+		}
+		
+		Server server = new Server(port);
 		ServletContextHandler context = new ServletContextHandler(ServletContextHandler.SESSIONS);
 		context.setContextPath("/");
 		server.setHandler(context);
