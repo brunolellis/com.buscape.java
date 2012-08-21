@@ -21,25 +21,47 @@ public class BuscapeWeb extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
-		resp.setContentType("text/html; charset=utf-8");
-		resp.setCharacterEncoding("UTF-8");
+		resp.setContentType("text/html; charset=iso-8859-1");
+		resp.setCharacterEncoding("ISO-8859-1");
 		
 		resp.getWriter().print("<html><head><title>Preços</title>");
-		resp.getWriter().print("<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\">");
+		resp.getWriter().print("<meta http-equiv=\"Content-Type\" content=\"text/html; charset=iso-8859-1\">");
 		resp.getWriter().print("</head><body>");
 		
 		BuscapeCliente cliente = new BuscapeCliente();
 		
-		int ipad = 385727; // novo ipad 32gb wifi
 		int nespresso = 86753;
 		int dolceGusto = 298833;
 		int samsungsIII = 397366;
 		
 		resp.getWriter().print("<pre>");
 		
-		resp.getWriter().println("*** iPad:");
-		exibirOfertas(cliente.pesquisarOfertas(ipad), resp);
+		int ipad16gb = 385725;
+		resp.getWriter().println("*** iPad 16GB:");
+		exibirOfertas(cliente.pesquisarOfertas(ipad16gb), resp);
 		resp.getWriter().println("<hr/>");
+
+		int ipad16gb4g = 385731;
+		resp.getWriter().println("*** iPad 16GB 4G:");
+		exibirOfertas(cliente.pesquisarOfertas(ipad16gb4g), resp);
+		resp.getWriter().println("<hr/>");
+
+                int ipad32gb = 385727;
+		resp.getWriter().println("*** iPad 32GB:");
+		exibirOfertas(cliente.pesquisarOfertas(ipad32gb), resp);
+		resp.getWriter().println("<hr/>");
+		
+
+		int ipad32gb4g = 385732;
+		resp.getWriter().println("*** iPad 32GB 4G:");
+		exibirOfertas(cliente.pesquisarOfertas(ipad32gb4g), resp);
+		resp.getWriter().println("<hr/>");
+
+		int ipad64gb = 385728;
+		resp.getWriter().println("*** iPad 64GB:");
+		exibirOfertas(cliente.pesquisarOfertas(ipad64gb), resp);
+		resp.getWriter().println("<hr/>");
+
 		resp.getWriter().println("*** Nespresso:");
 		exibirOfertas(cliente.pesquisarOfertas(nespresso), resp);
 		resp.getWriter().println("<hr/>");
