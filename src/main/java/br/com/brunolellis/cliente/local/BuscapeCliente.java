@@ -136,8 +136,14 @@ public class BuscapeCliente {
 		int dolceGusto = 298833;
 		int samsungsIII = 397366;
 		
+		
+		int ipad_4_32gb_wifi = 477709; // Apple iPad 4 Tela Retina Wi-Fi 32 GB
+		int ipad_4_16gb_wifi = 477706; // Apple iPad 4 Tela Retina Wi-Fi 16 GB
+		
+		
+		
 		System.out.println("*** iPad");
-		cliente.exibirOferta(cliente.pesquisarOfertas(ipad));
+		cliente.exibirOferta(cliente.pesquisarOfertas(ipad_4_16gb_wifi));
 		/*
 		
 		System.out.println("\n*** Nespresso");

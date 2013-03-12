@@ -25,48 +25,35 @@ public class BuscapeWeb extends HttpServlet {
 		resp.setCharacterEncoding("ISO-8859-1");
 		
 		resp.getWriter().print("<html><head><title>Preços</title>");
-		resp.getWriter().print("<meta http-equiv=\"Content-Type\" content=\"text/html; charset=iso-8859-1\">");
+		resp.getWriter().print("<meta http-equiv=\"content-type\" content=\"text/html; charset=iso-8859-1\">");
+		resp.getWriter().print("<meta http-equiv=\"refresh\" content=\"7200\">");
+		
 		resp.getWriter().print("</head><body>");
 		
 		BuscapeCliente cliente = new BuscapeCliente();
 		
-		int nespresso = 86753;
-		int dolceGusto = 298833;
-		int samsungsIII = 397366;
-		
 		resp.getWriter().print("<pre>");
 		
-		int ipad16gb = 385725;
-		resp.getWriter().println("*** iPad 16GB:");
-		exibirOfertas(cliente.pesquisarOfertas(ipad16gb), resp);
-		resp.getWriter().println("<hr/>");
-
-		int ipad16gb4g = 385731;
-		resp.getWriter().println("*** iPad 16GB 4G:");
-		exibirOfertas(cliente.pesquisarOfertas(ipad16gb4g), resp);
-		resp.getWriter().println("<hr/>");
-
-                int ipad32gb = 385727;
-		resp.getWriter().println("*** iPad 32GB:");
-		exibirOfertas(cliente.pesquisarOfertas(ipad32gb), resp);
+		int ipad_4_32gb_wifi = 477709;
+		resp.getWriter().println("*** Apple iPad 4 Tela Retina Wi-Fi 32 GB:");
+		exibirOfertas(cliente.pesquisarOfertas(ipad_4_32gb_wifi), resp);
 		resp.getWriter().println("<hr/>");
 		
-
-		int ipad32gb4g = 385732;
-		resp.getWriter().println("*** iPad 32GB 4G:");
-		exibirOfertas(cliente.pesquisarOfertas(ipad32gb4g), resp);
+		int ipad_4_16gb_wifi = 477706;
+		resp.getWriter().println("*** Apple iPad 4 Tela Retina Wi-Fi 16 GB:");
+		exibirOfertas(cliente.pesquisarOfertas(ipad_4_16gb_wifi), resp);
 		resp.getWriter().println("<hr/>");
-
-		int ipad64gb = 385728;
-		resp.getWriter().println("*** iPad 64GB:");
-		exibirOfertas(cliente.pesquisarOfertas(ipad64gb), resp);
-		resp.getWriter().println("<hr/>");
-
-		resp.getWriter().println("*** Nespresso:");
-		exibirOfertas(cliente.pesquisarOfertas(nespresso), resp);
-		resp.getWriter().println("<hr/>");
+		
+		int dolceGusto = 298833;
 		resp.getWriter().println("*** Dolce Gusto:");
 		exibirOfertas(cliente.pesquisarOfertas(dolceGusto), resp);
+		resp.getWriter().println("<hr/>");
+		
+		int oDilemaDaInovacao = 1857680128;
+		resp.getWriter().println("*** O Dilema da Inovacao - Clayton M. Christensen: ");
+		exibirOfertas(cliente.pesquisarOfertas(oDilemaDaInovacao), resp);
+		resp.getWriter().println("<hr/>");
+		
 		
 		resp.getWriter().print("</pre></body></html>");
 		
@@ -79,7 +66,11 @@ public class BuscapeWeb extends HttpServlet {
 				
 			}
 
-		}		
+		} else {
+			resp.getWriter().println("Nenhuma oferta encontrada.");
+			
+		}
+		
 		
 	}
 	

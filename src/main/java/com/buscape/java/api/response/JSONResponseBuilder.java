@@ -385,7 +385,11 @@ public class JSONResponseBuilder extends ResponseBuilder {
 		seller.setLinks( parseLinks( s.getJSONArray( "links" ) ) );
 		seller.setRating( parseRating( s.getJSONObject( "rating" ) ) );
 		seller.setSellerName( s.optString( "sellername" ) );
-		seller.setThumbnail( parseThumbnail( s.getJSONObject( "thumbnail" ) ) );
+		
+		if (s.has("thumbnail")) {
+			seller.setThumbnail( parseThumbnail( s.getJSONObject( "thumbnail" ) ) );
+			
+		}
 
 		return seller;
 	}
