@@ -36,6 +36,7 @@ public class BuscapeWeb extends HttpServlet {
 		exibirOfertas(606194, "Lenovo Z40 Intel Core i7-4500U 1.8 GHz 16384 MB 1024 GB", resp);
 		exibirOfertas(510109, "Samsung Lava e seca Seine WD106UHSAWQ Frontal 10,1 Kg Branco", resp);
 		exibirOfertas(606726, "Smartphone Samsung Galaxy A5 SM-A500M Desbloqueado", resp);
+		exibirOfertas(600696, "Smartphone Motorola Moto X 2ª Geração XT1097 32 GB Desbloqueado", resp);
 		
 		resp.getWriter().print("</pre></body></html>");
 		
