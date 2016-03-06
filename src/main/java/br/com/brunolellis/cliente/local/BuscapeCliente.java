@@ -1,5 +1,6 @@
 package br.com.brunolellis.cliente.local;
 
+import java.io.IOException;
 import java.util.List;
 
 import com.buscape.java.api.GrupoBuscape;
@@ -15,16 +16,33 @@ public class BuscapeCliente {
 	
 	private BuscapeAPI buscape;
 	
-	
 	public BuscapeCliente() {
 		buscape = new GrupoBuscape(APP_ID).sandbox().buscape();
 		
+	}
+
+	public static void main(String[] args) throws IOException {
+		BuscapeCliente cliente = new BuscapeCliente();
+		cliente.listagem();
+	}
+	
+	private void listagem() throws IOException {
+		exibirOfertas(606174, "Lenovo Z40-70 Intel Core i7-4500U 1.8 GHz 8192 MB 1024 GB");
+		exibirOfertas(606194, "Lenovo Z40 Intel Core i7-4500U 1.8 GHz 16384 MB 1024 GB");
+		exibirOfertas(510109, "Samsung Lava e seca Seine WD106UHSAWQ Frontal 10,1 Kg Branco");
+		
+		exibirOfertas(606726, "Smartphone Samsung Galaxy A5 SM-A500M Desbloqueado");
+		
+	}
+
+	private void exibirOfertas(int codigo, String descricao) throws IOException {
+		exibirOferta(pesquisarOfertas(codigo), descricao);
+		System.out.println();
 	}
 	
 	public List<Offer> pesquisarOfertas(int idProduto) {
 		Result resultado = buscape.findOfferList().setProductId(idProduto).sortByPrice().call();
 		return resultado.getOffer();
-		
 	}
 	
 	public List<Product> pesquisarProduto(String keyword) {
@@ -59,12 +77,13 @@ public class BuscapeCliente {
 		
 	}
 
-	public void exibirOferta(List<Offer> offers) {
+	public void exibirOferta(List<Offer> offers, String descricao) {
 		if (offers == null) {
 			return;
 			
 		}
 		
+		System.out.println(descricao);
 		for (Offer offer : offers) {
 			exibirOferta(offer);
 			
@@ -125,48 +144,6 @@ public class BuscapeCliente {
 	
 	public void exibirCategoria(Category categoria) {
 		System.out.println(String.format("%d) %s", categoria.getId(), categoria.getName()));
-		
-	}
-
-	public static void main(String[] args) {
-		BuscapeCliente cliente = new BuscapeCliente();
-		
-		int ipad = 385727; // novo ipad 32gb wifi
-		int nespresso = 86753;
-		int dolceGusto = 298833;
-		int samsungsIII = 397366;
-		
-		
-		int ipad_4_32gb_wifi = 477709; // Apple iPad 4 Tela Retina Wi-Fi 32 GB
-		int ipad_4_16gb_wifi = 477706; // Apple iPad 4 Tela Retina Wi-Fi 16 GB
-		
-		
-		
-		System.out.println("*** iPad");
-		cliente.exibirOferta(cliente.pesquisarOfertas(ipad_4_16gb_wifi));
-		/*
-		
-		System.out.println("\n*** Nespresso");
-		cliente.exibirOferta(cliente.pesquisarOfertas(nespresso));
-		
-		System.out.println("\n*** Dolce Gusto");
-		cliente.exibirOferta(cliente.pesquisarOfertas(dolceGusto));
-		
-		System.out.println("\n*** Pesquisa por 'dolce gusto'");
-		cliente.exibirProduto(cliente.pesquisarProduto("dolce gusto"));
-		
-		System.out.println("\n*** Produtos Top");
-		cliente.exibirProduto(cliente.exibirProdutosTop());
-		
-		System.out.println("\n*** Pesquisa pela categoria 'tablet'");
-		cliente.exibirCategoria(cliente.pesquisarCategoria("tablet"));
-		
-		System.out.println("\n*** Pesquisa pela categoria 5839 (som automotivo)");
-		cliente.exibirCategoria(cliente.pesquisarCategoria(5839));
-		
-		/* */
-		
-		cliente.exibirDetalhesDoProduto(cliente.pesquisarDetalhesDoProduto(samsungsIII));
 		
 	}
 

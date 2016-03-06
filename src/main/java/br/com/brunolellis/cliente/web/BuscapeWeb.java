@@ -30,35 +30,30 @@ public class BuscapeWeb extends HttpServlet {
 		
 		resp.getWriter().print("</head><body>");
 		
-		BuscapeCliente cliente = new BuscapeCliente();
-		
 		resp.getWriter().print("<pre>");
 		
-		int ipad_4_32gb_wifi = 477709;
-		resp.getWriter().println("*** Apple iPad 4 Tela Retina Wi-Fi 32 GB:");
-		exibirOfertas(cliente.pesquisarOfertas(ipad_4_32gb_wifi), resp);
-		resp.getWriter().println("<hr/>");
-		
-		int ipad_4_16gb_wifi = 477706;
-		resp.getWriter().println("*** Apple iPad 4 Tela Retina Wi-Fi 16 GB:");
-		exibirOfertas(cliente.pesquisarOfertas(ipad_4_16gb_wifi), resp);
-		resp.getWriter().println("<hr/>");
-		
-		int dolceGusto = 298833;
-		resp.getWriter().println("*** Dolce Gusto:");
-		exibirOfertas(cliente.pesquisarOfertas(dolceGusto), resp);
-		resp.getWriter().println("<hr/>");
-		
-		int oDilemaDaInovacao = 1857680128;
-		resp.getWriter().println("*** O Dilema da Inovacao - Clayton M. Christensen: ");
-		exibirOfertas(cliente.pesquisarOfertas(oDilemaDaInovacao), resp);
-		resp.getWriter().println("<hr/>");
-		
+		exibirOfertas(606174, "Lenovo Z40-70 Intel Core i7-4500U 1.8 GHz 8192 MB 1024 GB", resp);
+		exibirOfertas(606194, "Lenovo Z40 Intel Core i7-4500U 1.8 GHz 16384 MB 1024 GB", resp);
+		exibirOfertas(510109, "Samsung Lava e seca Seine WD106UHSAWQ Frontal 10,1 Kg Branco", resp);
+		exibirOfertas(606726, "Smartphone Samsung Galaxy A5 SM-A500M Desbloqueado", resp);
 		
 		resp.getWriter().print("</pre></body></html>");
 		
 	}
 	
+	private void novaLinha(HttpServletResponse resp) throws IOException {
+		resp.getWriter().println("");
+	}
+
+	private void exibirOfertas(int codigo, String descricao, HttpServletResponse resp) throws IOException {
+		resp.getWriter().println("<a href='http://www.buscape.com.br/prod_unico?idu=" + codigo + "' target='_blank'>");
+		resp.getWriter().println(descricao);
+		resp.getWriter().println("</a>");
+		
+		exibirOfertas(new BuscapeCliente().pesquisarOfertas(codigo), resp);
+		novaLinha(resp);
+	}
+
 	private void exibirOfertas(List<Offer> offers, HttpServletResponse resp) throws IOException {
 		if (offers != null) {
 			for (Offer offer : offers) {
