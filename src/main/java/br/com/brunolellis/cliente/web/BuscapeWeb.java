@@ -37,7 +37,10 @@ public class BuscapeWeb extends HttpServlet {
 		exibirOfertas(510109, "Samsung Lava e seca Seine WD106UHSAWQ Frontal 10,1 Kg Branco", resp);
 		exibirOfertas(606726, "Smartphone Samsung Galaxy A5 SM-A500M Desbloqueado", resp);
 		exibirOfertas(600696, "Smartphone Motorola Moto X 2ª Geração XT1097 32 GB Desbloqueado", resp);
-		
+		exibirOfertas(207804, "TP-LINK TL-WR941ND", resp);
+		exibirOfertas(207890, "TP-LINK TL-WR841ND", resp);
+		exibirOfertas(317917, "TP-LINK TL-WR841N", resp);
+
 		resp.getWriter().print("</pre></body></html>");
 		
 	}
