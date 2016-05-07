@@ -35,12 +35,7 @@ public class BuscapeWeb extends HttpServlet {
 		exibirOfertas(606174, "Lenovo Z40-70 Intel Core i7-4500U 1.8 GHz 8192 MB 1024 GB", resp);
 		exibirOfertas(606194, "Lenovo Z40 Intel Core i7-4500U 1.8 GHz 16384 MB 1024 GB", resp);
 		exibirOfertas(510109, "Samsung Lava e seca Seine WD106UHSAWQ Frontal 10,1 Kg Branco", resp);
-		exibirOfertas(606726, "Smartphone Samsung Galaxy A5 SM-A500M Desbloqueado", resp);
-//		exibirOfertas(600696, "Smartphone Motorola Moto X 2ª Geração XT1097 32 GB Desbloqueado", resp);
-//		exibirOfertas(207804, "TP-LINK TL-WR941ND", resp);
-//		exibirOfertas(207890, "TP-LINK TL-WR841ND", resp);
-//		exibirOfertas(317917, "TP-LINK TL-WR841N", resp);
-
+		exibirOfertas(619795, "Smartphone Lenovo Vibe K5", resp);
 		resp.getWriter().print("</pre></body></html>");
 		
 	}
