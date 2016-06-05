@@ -35,7 +35,6 @@ public class BuscapeWeb extends HttpServlet {
 		exibirOfertas(606174, "Lenovo Z40-70 Intel Core i7-4500U 1.8 GHz 8192 MB 1024 GB", resp);
 		exibirOfertas(606194, "Lenovo Z40 Intel Core i7-4500U 1.8 GHz 16384 MB 1024 GB", resp);
 		exibirOfertas(510109, "Samsung Lava e seca Seine WD106UHSAWQ Frontal 10,1 Kg Branco", resp);
-		exibirOfertas(619795, "Smartphone Lenovo Vibe K5", resp);
 		resp.getWriter().print("</pre></body></html>");
 		
 	}
