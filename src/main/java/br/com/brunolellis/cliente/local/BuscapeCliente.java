@@ -30,9 +30,6 @@ public class BuscapeCliente {
 		exibirOfertas(606174, "Lenovo Z40-70 Intel Core i7-4500U 1.8 GHz 8192 MB 1024 GB");
 		exibirOfertas(606194, "Lenovo Z40 Intel Core i7-4500U 1.8 GHz 16384 MB 1024 GB");
 		exibirOfertas(510109, "Samsung Lava e seca Seine WD106UHSAWQ Frontal 10,1 Kg Branco");
-		exibirOfertas(606726, "Smartphone Samsung Galaxy A5 SM-A500M Desbloqueado");
-		exibirOfertas(600696, "Smartphone Motorola Moto X 2ª Geração XT1097 32 GB Desbloqueado");
-		
 	}
 
 	private void exibirOfertas(int codigo, String descricao) throws IOException {
@@ -42,6 +39,11 @@ public class BuscapeCliente {
 	
 	public List<Offer> pesquisarOfertas(int idProduto) {
 		Result resultado = buscape.findOfferList().setProductId(idProduto).sortByPrice().call();
+
+		if (resultado == null) {
+			return null;
+		}
+		
 		return resultado.getOffer();
 	}
 	
