@@ -12,7 +12,7 @@ import com.buscape.java.api.response.Result;
 
 public class BuscapeCliente {
 
-	private static final String APP_ID = "2b504d467162784455724d3d";
+	private static final String APP_ID = "757347736264524b6936303d"; //"2b504d467162784455724d3d";
 	
 	private BuscapeAPI buscape;
 	
