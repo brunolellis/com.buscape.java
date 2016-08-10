@@ -35,6 +35,8 @@ public class BuscapeWeb extends HttpServlet {
 		exibirOfertas(606174, "Lenovo Z40-70 Intel Core i7-4500U 1.8 GHz 8192 MB 1024 GB", resp);
 		exibirOfertas(611724, "Lenovo Z40-70 Intel Core i7-4500U 1.8 GHz 16384 MB 1024 GB", resp);
 		exibirOfertas(510109, "Samsung Lava e seca Seine WD106UHSAWQ Frontal 10,1 Kg Branco", resp);
+		exibirOfertas(618824, "Samsung Lava e seca WD6000 WD10J6410AW Frontal 10,2 Kg Branco", resp);
+		exibirOfertas(618825, "Samsung Lava e seca WD6000 WD90J6410AW Frontal 9 Kg Branco", resp);
 		resp.getWriter().print("</pre></body></html>");
 		
 	}
