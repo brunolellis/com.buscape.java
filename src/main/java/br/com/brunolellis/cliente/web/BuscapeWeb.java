@@ -36,6 +36,8 @@ public class BuscapeWeb extends HttpServlet {
 		//exibirOfertas(611724, "Lenovo Z40-70 Intel Core i7-4500U 1.8 GHz 16384 MB 1024 GB", resp);
 		exibirOfertas(598166, "LG 23MP55HQ LED IPS 23.0 polegadas", resp);
 		exibirOfertas(188619, "Assassin's Creed II Playstation 3 Blu-Ray", resp);
+		exibirOfertas(188921, "Burigotto Bye Bye Simples", resp);
+		
 		
 		resp.getWriter().print("</pre></body></html>");
 		
