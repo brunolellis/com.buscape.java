@@ -38,6 +38,9 @@ public class BuscapeWeb extends HttpServlet {
 		exibirOfertas(188619, "Assassin's Creed II Playstation 3 Blu-Ray", resp);
 		exibirOfertas(188921, "Burigotto Bye Bye Simples", resp);
 		
+		exibirOfertas(619795, "Smartphone Lenovo Vibe K5", resp);
+		
+		
 		
 		resp.getWriter().print("</pre></body></html>");
 		
