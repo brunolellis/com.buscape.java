@@ -41,10 +41,7 @@ public class BuscapeWeb extends HttpServlet {
 		//exibirOfertas(619795, "Smartphone Lenovo Vibe K5", resp);
 		
 		
-		exibirOfertas(635368, "Philco Ciclone Force 1000 W", resp);
-		exibirOfertas(620348, "Philco PH Rapid 1000 W", resp);
-		exibirOfertas(616718, "Brastemp BAA60EB 60 cm Parede", resp);
-		
+		exibirOfertas(528476, "Burigotto Matrix Evolution Até 25 Kg", resp);
 		
 		resp.getWriter().print("</pre></body></html>");
 		
