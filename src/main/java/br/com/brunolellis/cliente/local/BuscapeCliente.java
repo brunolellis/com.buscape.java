@@ -1,6 +1,7 @@
 package br.com.brunolellis.cliente.local;
 
 import java.io.IOException;
+import java.time.LocalDateTime;
 import java.util.List;
 
 import com.buscape.java.api.GrupoBuscape;
@@ -12,12 +13,17 @@ import com.buscape.java.api.response.Result;
 
 public class BuscapeCliente {
 
-	private static final String APP_ID = "5868384365533763337a383d";
+	//private static final String APP_ID = "5868384365533763337a383d";
+	//private static final String APP_ID = "564771466d477a4458664d3d";
+	//private static final String APP_ID = "c405d239-4599-3ef4-b79a-c986bd5f7792";
 	
 	private BuscapeAPI buscape;
 	
 	public BuscapeCliente() {
-		buscape = new GrupoBuscape(APP_ID).sandbox().buscape();
+		String appid = "36686569316a69734762553d";
+		appid = "7838643852314c587376343d";
+		appid = "757347736264524b6936303d";
+		buscape = new GrupoBuscape(appid).sandbox().buscape();
 		
 	}
 
@@ -27,14 +33,12 @@ public class BuscapeCliente {
 	}
 	
 	private void listagem() throws IOException {
-		exibirOfertas(606174, "Lenovo Z40-70 Intel Core i7-4500U 1.8 GHz 8192 MB 1024 GB");
-		exibirOfertas(606194, "Lenovo Z40 Intel Core i7-4500U 1.8 GHz 16384 MB 1024 GB");
-		exibirOfertas(510109, "Samsung Lava e seca Seine WD106UHSAWQ Frontal 10,1 Kg Branco");
+		exibirOfertas(528476, "Burigotto Matrix Evolution Até 25 Kg");
 	}
 
 	private void exibirOfertas(int codigo, String descricao) throws IOException {
+		log("pesquisando ofertas para " + descricao);
 		exibirOferta(pesquisarOfertas(codigo), descricao);
-		System.out.println();
 	}
 	
 	public List<Offer> pesquisarOfertas(int idProduto) {
@@ -72,20 +76,18 @@ public class BuscapeCliente {
 			
 		}
 		
-		System.out.println(String.format("%d) %s (R$ %.2f ~ R$ %.2f)", produto.getId(),
-				produto.getProductName(), produto.getPriceMin(),
-				produto.getPriceMax()));
-			
-		
+		log(String.format("%d) %s (R$ %.2f ~ R$ %.2f)", produto.getId(),
+				produto.getProductName(), produto.getPriceMin(), produto.getPriceMax()));
 	}
 
 	public void exibirOferta(List<Offer> offers, String descricao) {
 		if (offers == null) {
+			log("nenhuma oferta encontrada para " + descricao);
 			return;
 			
 		}
 		
-		System.out.println(descricao);
+		log(offers.size() + " ofertas encontradas para " + descricao);
 		for (Offer offer : offers) {
 			exibirOferta(offer);
 			
@@ -165,4 +167,7 @@ public class BuscapeCliente {
 		
 	}
 
+	private void log(String mensagem) {
+		System.out.println(LocalDateTime.now() + " - " + mensagem);
+	}
 }
